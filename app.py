@@ -5,47 +5,61 @@ app.secret_key = 'your_secret_key'  # Choose a random key for your app
 
 @app.route('/')
 def home():
-    nav_open = session.get('nav_open', False)
     screen_width = request.args.get('width', type=int, default=320)
     session['screen_width'] = screen_width
-    return render_template('home.html', nav_open=nav_open, screen_width=screen_width)
-
-
-
-@app.route('/toggle-nav')
-def toggle_nav():
-    session['nav_open'] = not session.get('nav_open', False)
-    return redirect(url_for('home',))
+    return render_template('home.html', screen_width=screen_width)
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
-
-
+    screen_width = request.args.get('width', type=int, default=320)
+    session['screen_width'] = screen_width
+    return render_template('about.html', screen_width=screen_width)
 
 @app.route('/menu')
 def menu():
-    nav_open = session.get('nav_open', False)
     screen_width = request.args.get('width', type=int, default=320)
     session['screen_width'] = screen_width
     menu_items = [
+    {"name": "Espresso", "price": "$3.00", "image": "images/espresso.jpg"},
+    {"name": "Cappuccino", "price": "$3.50"},
+    {"name": "Americano", "price": "$2.50"},
+    {"name": "Latte", "price": "$4.00"},
+    {"name": "Mocha", "price": "$4.50"},
+    {"name": "Macchiato", "price": "$3.75"},
+    {"name": "Flat White", "price": "$4.00"},
+    {"name": "Ristretto", "price": "$3.25"},
+    {"name": "Cortado", "price": "$3.75"},
+    {"name": "Doppio", "price": "$3.50"},
+    {"name": "Cold Brew", "price": "$4.50"},
+    {"name": "Iced Coffee", "price": "$4.00"},
+    {"name": "Frappuccino", "price": "$5.00"},
+    {"name": "Nitro Cold Brew", "price": "$5.50"},
+    {"name": "Café au Lait", "price": "$3.75"},
+    {"name": "Affogato", "price": "$4.25"},
+    {"name": "Viennese Coffee", "price": "$4.50"},
+    {"name": "Turkish Coffee", "price": "$4.00"},
+    {"name": "Café Breve", "price": "$4.25"},
+    {"name": "Café Con Leche", "price": "$3.75"},
+    {"name": "Café Corretto", "price": "$4.50"},
+    {"name": "Café Cubano", "price": "$3.50"},
+    {"name": "Long Black", "price": "$3.00"},
+    {"name": "Lungo", "price": "$3.25"},
+    {"name": "Galão", "price": "$4.00"}
+]
 
-        {"name": "Espresso", "price": "$3.00"},
-        {"name": "Cappuccino", "price": "$3.50"},
-    ]
-    return render_template('menu.html', items=menu_items, nav_open=nav_open, screen_width=screen_width)
-
-
+    return render_template('menu.html', items=menu_items, screen_width=screen_width)
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
-
-
+    screen_width = request.args.get('width', type=int, default=320)
+    session['screen_width'] = screen_width
+    return render_template('contact.html', screen_width=screen_width)
 
 @app.route('/buynow')
 def buynow():
-    return render_template('buynow.html')
+    screen_width = request.args.get('width', type=int, default=320)
+    session['screen_width'] = screen_width
+    return render_template('buynow.html', screen_width=screen_width)
 
 
 
