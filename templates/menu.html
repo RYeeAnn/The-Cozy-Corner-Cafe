@@ -22,16 +22,11 @@
             <ul class="menu__list">
                 {% for item in items %}
                 <li>
-                    {% if 'image' in item %}
-                        <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}" width="100">
-                    {% endif %}
-                    {{ item.name }} - {{ item.price }}
-                </li>static/css/images/espresso.jpg
-            {% endfor %}
-            
-            </ul>
-            
-            
+                    <div class="menu__item-name">{{ item.name }}</div>
+                    <div class="menu__item-price">{{ item.price }}</div>
+                </li>
+                {% endfor %}
+            </ul>            
         </div>
     </div>
 
