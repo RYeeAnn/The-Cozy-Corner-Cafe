@@ -19,8 +19,18 @@
 
         <div class="menu__header">
             <h1>Our Menu</h1>
+            <h2>Drinks</h2>
             <ul class="menu__list">
-                {% for item in items %}
+                {% for item in drink %}
+                <li>
+                    <div class="menu__item-name">{{ item.name }}</div>
+                    <div class="menu__item-price">{{ item.price }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+            <h2>Pastries</h2>
+            <ul class="menu__list">
+                {% for item in pastries %}
                 <li>
                     <div class="menu__item-name">{{ item.name }}</div>
                     <div class="menu__item-price">{{ item.price }}</div>
