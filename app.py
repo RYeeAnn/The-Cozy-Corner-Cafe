@@ -21,7 +21,7 @@ def about():
 @app.route('/menu')
 def menu():
     drink_items = [
-    {"name": "Espresso", "price": "$3.00",},
+    {"name": "Espresso", "price": "$3.00", "description": "A strong coffee made by forcing steam through ground coffee beans."},
     {"name": "Cappuccino", "price": "$3.50"},
     {"name": "Americano", "price": "$2.50"},
     {"name": "Latte", "price": "$4.00"},

@@ -7,6 +7,7 @@
 </head>
 <body>
 
+    <!-- Menu -->
     <div class="menu">
         <nav class="navigation">
             <ul class="nav-list" {% if nav_open or screen_width >= 768 %}style="display: block;"{% endif %}>
@@ -17,27 +18,42 @@
             </ul>
         </nav>
 
+        <!-- Header -->
         <div class="menu__header">
             <h1>Our Menu</h1>
+
             <h2>Drinks</h2>
             <ul class="menu__list">
                 {% for item in drink %}
-                <li>
+                <li onclick="openModal('{{ item.name }}', '{{ item.description }}', '{{ item.price }}')">
                     <div class="menu__item-name">{{ item.name }}</div>
                     <div class="menu__item-price">{{ item.price }}</div>
                 </li>
                 {% endfor %}
             </ul>
+
             <h2>Pastries</h2>
             <ul class="menu__list">
-                {% for item in pastries %}
-                <li>
+                {% for item in drink %}
+                <li onclick="openModal('{{ item.name }}', '{{ item.description }}', '{{ item.price }}')">
                     <div class="menu__item-name">{{ item.name }}</div>
                     <div class="menu__item-price">{{ item.price }}</div>
                 </li>
                 {% endfor %}
             </ul>            
         </div>
+
+        <!-- Menu Modal -->
+        <div class="modal" id="itemModal">
+            <div class="modal-content">
+                <h2 id="modalItemName">Item Name</h2>
+                <p id="modalItemDescription">Item Description Here...</p>
+                <div class="modal__item-price" id="modalItemPrice">$0.00</div>
+                <button id="addToCartBtn">Add to Cart</button>
+            </div>
+            <span class="close-modal">&times;</span>
+        </div>
+
     </div>
 
 </body>
