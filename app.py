@@ -21,8 +21,8 @@ def about():
 @app.route('/menu')
 def menu():
     drink_items = [
-    {"name": "Espresso", "price": "$3.00",},
-    {"name": "Cappuccino", "price": "$3.50"},
+    {"name": "Espresso", "price": "$3.00", "description": "A strong coffee drink.",},
+    {"name": "Cappuccino", "price": "$3.50", "description": "A coffee with frothed milk.",},
     {"name": "Americano", "price": "$2.50"},
     {"name": "Latte", "price": "$4.00"},
     {"name": "Mocha", "price": "$4.50"},
@@ -35,8 +35,8 @@ def menu():
     {"name": "Affogato", "price": "$4.25"},
 ]
     pastries_items = [
-    {"name": "Croissant", "price": "$2.50"},
-    {"name": "Chocolate Eclair", "price": "$3.75"},
+    {"name": "Croissant", "price": "$2.50", "description": "A buttery pastry.",},
+    {"name": "Chocolate Eclair", "price": "$3.75", "description": "A pastry filled with cream.",},
     {"name": "Cinnamon Roll", "price": "$2.75"},
     {"name": "Danish Pastry", "price": "$2.50"},
     {"name": "Lemon Tart", "price": "$3.00"},
