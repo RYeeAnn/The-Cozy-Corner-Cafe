@@ -53,25 +53,28 @@ a {
 
 /* Home */
 .home__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background: #fff url(./images/cafe.jpg) no-repeat 100% center;
-    background-size: cover;
-    height: 100vh;
+    padding: 200px 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./images/coffee-beans.jpg) no-repeat center center/cover;
+    color: #fff;
+}
+
+.home__header button {
+    border: 2px solid #fff;
+    font-weight: bold;
 }
 
 .home__header h1 {
     color: white;
     font-size: 2.5em;
     margin-bottom: 10px;
+    padding-left: 16px;
 }
 
 .home__header p {
     color: white;
     font-size: 1.2em;
     margin-bottom: 20px;
+    padding-left: 16px;
 }
 
 /* Hero Section */
@@ -101,6 +104,8 @@ a {
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin: 0;
+    margin-left: 16px;
 }
 
 .cta-btn:hover {
