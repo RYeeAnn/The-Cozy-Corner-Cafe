@@ -1,10 +1,13 @@
 from flask import Flask, render_template, session, redirect, url_for, request, flash
 from flask_pymongo import PyMongo
+from flask import CORS
+import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Remember to keep this key safe and private
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
+app.config["MONGO_URI"] = f"mongodb+srv://ryeean:{os.environ.get('MONGO_PASS')}@thecozycornerproduction.so2f5hs.mongodb.net/"
 mongo = PyMongo(app)
+CORS(app, resources={r"/api/*": {"origins": "https://thecozycorner.netlify.app"}})
 
 def get_screen_width():
     """Utility function to fetch screen width from request args or session."""
@@ -73,4 +76,4 @@ def buynow():
     return render_template('buynow.html', screen_width=get_screen_width())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
