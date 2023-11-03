@@ -1,6 +1,6 @@
 from flask import Flask, render_template, session, redirect, url_for, request, flash
 from flask_pymongo import PyMongo
-from flask import CORS
+from flask_cors import CORS  # Correct import
 import os
 
 app = Flask(__name__)
