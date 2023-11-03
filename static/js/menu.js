@@ -24,15 +24,26 @@ const modal = document.getElementById("modal");
 const listItems = document.querySelectorAll(".menu__list > li");
 
 // When the user clicks on a list item, open the modal
-listItems.forEach(item => {
-    item.onclick = function() {
-        const btn = item.querySelector(".menu__item-name");
+document.querySelectorAll(".menu__list > li").forEach(li => {
+    li.addEventListener('click', function() {
+        // Find the .menu__item-name element within the clicked li
+        const itemNameDiv = this.querySelector(".menu__item-name");
+
+        // Get the data attributes from the .menu__item-name element
+        const itemName = itemNameDiv.getAttribute("data-modal-trigger");
+        const itemDescription = itemNameDiv.getAttribute("data-description") || 'No description'; // Fallback in case there is no description
+        const itemPrice = itemNameDiv.parentElement.querySelector(".menu__item-price").textContent;
+        const itemImage = itemNameDiv.getAttribute("data-image");
+
+        // Set the modal content
+        document.getElementById("modalName").textContent = itemName;
+        document.getElementById("modalDescription").textContent = itemDescription;
+        document.getElementById("modalPrice").textContent = itemPrice;
+        document.getElementById("modalImage").src = itemImage;
+
+        // Display the modal
         modal.style.display = "block";
-        document.getElementById("modalName").textContent = btn.getAttribute("data-modal-trigger");
-        document.getElementById("modalDescription").textContent = btn.getAttribute("data-description");
-        document.getElementById("modalPrice").textContent = btn.querySelector(".menu__item-price").textContent;
-        document.getElementById("modalImage").src = btn.getAttribute("data-image");
-    }
+    });
 });
 
 // Get the <span> element that closes the modal
