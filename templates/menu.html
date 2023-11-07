@@ -37,7 +37,7 @@
 
             <h2>Pastries</h2>
             <ul class="menu__list">
-                {% for item in drink %}
+                {% for item in pastries %}
                 <li>
                     <div class="menu__item-name" data-modal-trigger="{{ item.name }}" data-description="{{ item.description | default('No description') }}" data-image="{{ url_for('static', filename=item.image_path) }}" data-price="{{ item.price }}">{{ item.name }}</div>
                     <div class="menu__item-price">{{ item.price }}</div>
