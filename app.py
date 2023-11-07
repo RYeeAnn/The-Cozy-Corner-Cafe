@@ -7,7 +7,6 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 app.config["MONGO_URI"] = f"mongodb+srv://ryeean:{os.environ.get('MONGO_PASS')}@thecozycornerproduction.so2f5hs.mongodb.net/"
 mongo = PyMongo(app)
-CORS(app, resources={r"/api/*": {"origins": "https://thecozycorner.netlify.app"}})
 
 def get_screen_width():
     """Utility function to fetch screen width from request args or session."""
